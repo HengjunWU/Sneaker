@@ -29,13 +29,13 @@ class ItemStore {
         }
     }
 
-    @discardableResult func createItem() -> Item {
-        let newItem = Item(random: true)
-        
+    @discardableResult func createItem(_ name: String,_ serialNumber: String,_ valueInDollars: Int) -> Item {
+        let newItem = Item(name: name, serialNumber: serialNumber, valueInDollars: valueInDollars)
+
         allItems.append(newItem)
-        
+
         return newItem
-        
+
     }
     
     func removeItem(_ item:Item){
