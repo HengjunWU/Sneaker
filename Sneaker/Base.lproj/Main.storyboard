@@ -79,13 +79,6 @@
         <!--Detail View Controller-->
         <scene sceneID="gkl-UV-mfH">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jJi-ei-Mdw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="6x8-II-bF3">
-                    <connections>
-                        <action selector="backgroudTapped:" destination="U2q-Gz-LjG" id="AnD-SW-w3c"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <exit id="f8w-Vz-3e3" userLabel="Exit" sceneMemberID="exit"/>
                 <viewController id="U2q-Gz-LjG" customClass="DetailViewController" customModule="Sneaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EO1-fR-pDQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -117,7 +110,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KE7-J1-um3">
                                         <rect key="frame" x="0.0" y="42" width="359" height="34"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkx-7e-qvq">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkx-7e-qvq">
                                                 <rect key="frame" x="0.0" y="0.0" width="45" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -195,19 +188,19 @@
                         <outlet property="valueField" destination="luJ-EZ-h4O" id="vFV-i0-pgc"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jJi-ei-Mdw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6x8-II-bF3">
+                    <connections>
+                        <action selector="backgroudTapped:" destination="U2q-Gz-LjG" id="AnD-SW-w3c"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <exit id="f8w-Vz-3e3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1678" y="27"/>
         </scene>
         <!--Add View Controller-->
         <scene sceneID="ccc-B5-OhD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oca-Gw-fSN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="TcW-1v-l7Z">
-                    <connections>
-                        <action selector="backgroudTapped:" destination="h0S-wG-17e" id="Te1-k1-1ll"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <exit id="i0W-i8-xQL" userLabel="Exit" sceneMemberID="exit"/>
                 <viewController id="h0S-wG-17e" customClass="AddViewController" customModule="Sneaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wxi-tx-1UM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -240,7 +233,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="s97-KP-1wr">
                                         <rect key="frame" x="0.0" y="42" width="359" height="34"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fq-ML-J1L">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fq-ML-J1L">
                                                 <rect key="frame" x="0.0" y="0.0" width="45" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -314,6 +307,13 @@
                         <outlet property="valueField" destination="4lO-49-GYl" id="DK4-HI-AFF"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oca-Gw-fSN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="TcW-1v-l7Z">
+                    <connections>
+                        <action selector="backgroudTapped:" destination="h0S-wG-17e" id="Te1-k1-1ll"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <exit id="i0W-i8-xQL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="962" y="-633"/>
         </scene>
