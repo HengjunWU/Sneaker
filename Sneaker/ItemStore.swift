@@ -12,6 +12,7 @@ class ItemStore {
     
     var allItems = [Item]()
     
+    // archiving
     let itemArchiveURL: URL = {
         let documentsDirectories = FileManager.default.urls(for:.documentDirectory, in: .userDomainMask)
         let documentDirectory = documentsDirectories.first!
@@ -29,8 +30,8 @@ class ItemStore {
         }
     }
 
-    @discardableResult func createItem(_ name: String,_ serialNumber: String,_ valueInDollars: Int) -> Item {
-        let newItem = Item(name: name, serialNumber: serialNumber, valueInDollars: valueInDollars)
+    @discardableResult func createItem(_ name: String,_ color: String,_ valueInDollars: Int) -> Item {
+        let newItem = Item(name: name, color: color, valueInDollars: valueInDollars)
 
         allItems.append(newItem)
 
@@ -39,7 +40,7 @@ class ItemStore {
     }
     
     func removeItem(_ item:Item){
-        if let index = allItems.index(of:item){
+        if let index = allItems.firstIndex(of:item){
             allItems.remove(at: index)
         }
     }
@@ -50,12 +51,13 @@ class ItemStore {
         }
         // get reference to the object being moved so that we can reinsert it
         let movedItem = allItems[fromIndex]
-        // rmove the item from array
+        // remove the item from array
         allItems.remove(at: fromIndex)
         // insert it in the array at the new position
         allItems.insert(movedItem, at: toIndex)
     }
     
+    // archiving
     func saveChanges() -> Bool {
         do {
             let data = try NSKeyedArchiver.archivedData(withRootObject: allItems, requiringSecureCoding: false)

@@ -20,6 +20,10 @@
 		EF786A95244A9CF300CA99BE /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF786A94244A9CF300CA99BE /* ItemCell.swift */; };
 		EF786A97244AB73600CA99BE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF786A96244AB73600CA99BE /* DetailViewController.swift */; };
 		EF786A99244B663D00CA99BE /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF786A98244B663D00CA99BE /* AddViewController.swift */; };
+		EFCADF5F2454E19400E5E5FB /* Sneaker.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFCADF5E2454E19400E5E5FB /* Sneaker.jpg */; };
+		EFCADF612454E26800E5E5FB /* sneakerColl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFCADF602454E26800E5E5FB /* sneakerColl.jpg */; };
+		EFCADF642454E68700E5E5FB /* sneakerIcon 58*58.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFCADF622454E68700E5E5FB /* sneakerIcon 58*58.jpg */; };
+		EFCADF652454E68700E5E5FB /* sneakerIcon 87*87.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFCADF632454E68700E5E5FB /* sneakerIcon 87*87.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		EF786A94244A9CF300CA99BE /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		EF786A96244AB73600CA99BE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EF786A98244B663D00CA99BE /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		EFCADF5E2454E19400E5E5FB /* Sneaker.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Sneaker.jpg; path = ../../../Downloads/Sneaker.jpg; sourceTree = "<group>"; };
+		EFCADF602454E26800E5E5FB /* sneakerColl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sneakerColl.jpg; path = ../../../Downloads/sneakerColl.jpg; sourceTree = "<group>"; };
+		EFCADF622454E68700E5E5FB /* sneakerIcon 58*58.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "sneakerIcon 58*58.jpg"; path = "../../../Downloads/sneakerIcon 58*58.jpg"; sourceTree = "<group>"; };
+		EFCADF632454E68700E5E5FB /* sneakerIcon 87*87.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "sneakerIcon 87*87.jpg"; path = "../../../Downloads/sneakerIcon 87*87.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,10 @@
 		EF786A5D244A5BA200CA99BE /* Sneaker */ = {
 			isa = PBXGroup;
 			children = (
+				EFCADF622454E68700E5E5FB /* sneakerIcon 58*58.jpg */,
+				EFCADF632454E68700E5E5FB /* sneakerIcon 87*87.jpg */,
+				EFCADF602454E26800E5E5FB /* sneakerColl.jpg */,
+				EFCADF5E2454E19400E5E5FB /* Sneaker.jpg */,
 				EF786A5E244A5BA200CA99BE /* AppDelegate.swift */,
 				EF786A60244A5BA200CA99BE /* SceneDelegate.swift */,
 				EF786A64244A5BA200CA99BE /* Main.storyboard */,
@@ -248,8 +260,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF786A6B244A5BA400CA99BE /* LaunchScreen.storyboard in Resources */,
+				EFCADF652454E68700E5E5FB /* sneakerIcon 87*87.jpg in Resources */,
 				EF786A68244A5BA400CA99BE /* Assets.xcassets in Resources */,
+				EFCADF642454E68700E5E5FB /* sneakerIcon 58*58.jpg in Resources */,
 				EF786A66244A5BA200CA99BE /* Main.storyboard in Resources */,
+				EFCADF612454E26800E5E5FB /* sneakerColl.jpg in Resources */,
+				EFCADF5F2454E19400E5E5FB /* Sneaker.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,8 +2,8 @@
 //  File.swift
 //  Sneaker
 //
-//  Created by 吴亨俊 on 4/17/20.
-//  Copyright © 2020 吴亨俊. All rights reserved.
+//  Created by Hengjun Wu on 4/17/20.
+//  Copyright © 2020 Hengjun Wu. All rights reserved.
 //
 
 import UIKit
@@ -24,7 +24,6 @@ class ItemViewController: UITableViewController {
             case "showItem"?:
                 // Figure out which row was just tapped
                 if let row = tableView.indexPathForSelectedRow?.row {
-                    
                     // Get the item associated with this row and pass it along
                     let item = itemStore.allItems[row]
                     let detailViewController
@@ -34,21 +33,10 @@ class ItemViewController: UITableViewController {
                     detailViewController.itemStore = itemStore
                 }
             case "addItem"?:
-//                let itemStore = itemStore
-                let addViewController
-                    = segue.destination as! AddViewController
+                // go to addView segue
+                let addViewController = segue.destination as! AddViewController
                 addViewController.itemStore = itemStore
-            // Figure out which row was just tapped
-//            if let row = tableView.indexPathForSelectedRow?.row {
-//
-//                // Get the item associated with this row and pass it along
-//                let item = itemStore.allItems[row]
-//                let detailViewController
-//                    = segue.destination as! DetailViewController
-//                detailViewController.item = item
-//                detailViewController.rowIndex = row
-//                detailViewController.itemStore = itemStore
-//            }
+
         default:
             preconditionFailure("Unexpected segue identifier.")
         }
@@ -61,19 +49,6 @@ class ItemViewController: UITableViewController {
         tableView.estimatedRowHeight = 65
     }
     
-//    @IBAction func addNewItem(_ sender: UIBarButtonItem) {
-//        //Create a new item and add it to the store
-//        let newItem = itemStore.createItem()
-//
-//        //Figure out where that item is in the array
-//        if let index = itemStore.allItems.index(of:newItem){
-//            let indexPath = IndexPath(row:index,section: 0)
-//
-//            //Insert this new row into the table
-//            tableView.insertRows(at: [indexPath], with: .automatic)
-//        }
-//    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemStore.allItems.count
     }
@@ -85,12 +60,10 @@ class ItemViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
         
         cell.nameLabel.text = item.name
-        cell.serialNumberLabel.text = item.serialNumber
+        cell.colorLabel.text = item.color
         cell.valueLabel.text = "$\(item.valueInDollars)"
         return cell
     }
-    
-
     
     // for deleting a row
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -125,7 +98,6 @@ class ItemViewController: UITableViewController {
     }
 
     override func tableView(_ tableView:UITableView,moveRowAt sourceIndexPath:IndexPath, to destinationIndexPath:IndexPath){
-        
         //Update the model
         itemStore.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }

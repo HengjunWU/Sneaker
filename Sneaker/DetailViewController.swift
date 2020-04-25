@@ -2,48 +2,16 @@
 //  DetailViewController.swift
 //  Sneaker
 //
-//  Created by 吴亨俊 on 4/18/20.
-//  Copyright © 2020 吴亨俊. All rights reserved.
+//  Created by Hengjun Wu on 4/18/20.
+//  Copyright © 2020 Hengjun Wu. All rights reserved.
 //
 
 import UIKit
 
 class DetailViewController: UIViewController, UITextFieldDelegate {
-        
-    @IBAction func backgroudTapped(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
-    
-    @IBAction func trashAction(_ sender: UIBarButtonItem) {
-        
-        // ask user to confirm
-        let title = "Delete \(self.item.name)?"
-        let message = "Are you sure you want to delete this item?"
-
-        let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
-        ac.addAction(cancelAction)
-
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) -> Void in
-            // remove the item from the store
-            self.itemStore.removeItem(self.item)
-            //also remove that row from the table view, with animation
-            self.navigationController?.popViewController(animated: true)
-        })
-
-        ac.addAction(deleteAction)
-        // put up the controller as a modal view
-        present(ac, animated: true, completion: nil)
-    }
-    
-    
-    
-    
     
     @IBOutlet var nameField: UITextField!
-    @IBOutlet var serialNumberField: UITextField!
+    @IBOutlet var colorField: UITextField!
     @IBOutlet var valueField: UITextField!
     @IBOutlet var dateLabel: UILabel!
     
@@ -72,11 +40,12 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         return formatter
     }()
     
+    
     override  func viewWillAppear(_ animated:Bool){
         super.viewWillAppear(animated)
 
         nameField.text = item.name
-        serialNumberField.text = item.serialNumber
+        colorField.text = item.color
         
         valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
         dateLabel.text = dateFormatter.string(from: item.dateCreated)
@@ -90,7 +59,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
         // "save" changes to item
         item.name = nameField.text ?? ""
-        item.serialNumber = serialNumberField.text!
+        item.color = colorField.text!
         if let valueText = valueField.text,
             let value = numberFormatter.number(from: valueText) {
             item.valueInDollars = value.intValue
@@ -99,9 +68,36 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // dismissing keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    @IBAction func backgroudTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     
+    // trash can button for deleting
+    @IBAction func trashAction(_ sender: UIBarButtonItem) {
+        // ask user to confirm
+        let title = "Delete \(self.item.name)?"
+        let message = "Are you sure you want to delete this item?"
+
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        ac.addAction(cancelAction)
+
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) -> Void in
+            // remove the item from the store
+            self.itemStore.removeItem(self.item)
+            //also remove that row from the table view, with animation
+            self.navigationController?.popViewController(animated: true)
+        })
+
+        ac.addAction(deleteAction)
+        // put up the controller as a modal view
+        present(ac, animated: true, completion: nil)
+    }
 }

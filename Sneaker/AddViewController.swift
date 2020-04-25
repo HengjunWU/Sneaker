@@ -2,32 +2,28 @@
 //  AddViewController.swift
 //  Sneaker
 //
-//  Created by 吴亨俊 on 4/18/20.
-//  Copyright © 2020 吴亨俊. All rights reserved.
+//  Created by Hengjun Wu on 4/18/20.
+//  Copyright © 2020 Hengjun Wu. All rights reserved.
 //
 
 import UIKit
 
 class AddViewController: UIViewController, UITextFieldDelegate {
         
-    @IBAction func backgroudTapped(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
-
     @IBOutlet var nameField: UITextField!
-    @IBOutlet var serialNumberField: UITextField!
+    @IBOutlet var colorField: UITextField!
     @IBOutlet var valueField: UITextField!
     @IBOutlet var dateLabel: UILabel!
 
     var itemStore: ItemStore!
     var name: String = ""
     var valueInDollars: Int = 0
-    var serialNumber: String = ""
+    var color: String = ""
     var dateCreated: Date
 
     required init?(coder aDecoder: NSCoder) {
         self.dateCreated = Date()
-
+        
         super.init(coder: aDecoder)
     }
     
@@ -53,12 +49,11 @@ class AddViewController: UIViewController, UITextFieldDelegate {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
         // Clear first responder
         view.endEditing(true)
         // "save" changes to item
         name = nameField.text ?? ""
-        serialNumber = serialNumberField.text!
+        color = colorField.text!
         if let valueText = valueField.text,
             let value = numberFormatter.number(from: valueText) {
             valueInDollars = value.intValue
@@ -66,29 +61,56 @@ class AddViewController: UIViewController, UITextFieldDelegate {
             valueInDollars = 0
         }
     }
-
+    
+    // dismissing keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         print(dateCreated)
         return true
     }
+    @IBAction func backgroudTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     
-    @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        name = nameField.text ?? ""
-        serialNumber = serialNumberField.text!
-        if let valueText = valueField.text,
-            let value = numberFormatter.number(from: valueText) {
-            valueInDollars = value.intValue
-        } else {
-            valueInDollars = 0
+    // validation function
+    func validateFields() -> String? {
+        //check if all fields are filled
+        if (nameField.text == "" ||
+            colorField.text == "" ||
+            valueField.text == "" )
+        {
+            return "Please fill in all fields."
         }
-        dateCreated = Date()
-        print(name,serialNumber,valueInDollars,dateCreated)
-        //Create a new item and add it to the store
-        itemStore.createItem(name,serialNumber,valueInDollars)
+
+        if NumberFormatter().number(from: valueField.text!) == nil {
+            return "Value must be integer only."
+        }
         
-        self.navigationController?.popViewController(animated: true)
+        return nil
+    }
+    
+    // save item button
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        let error = validateFields()
         
+        if error != nil {
+            dateLabel.text = dateFormatter.string(from: Date()) + "\n" + error!
+        } else {
+            name = nameField.text ?? ""
+            color = colorField.text!
+            if let valueText = valueField.text,
+                let value = numberFormatter.number(from: valueText) {
+                valueInDollars = value.intValue
+            } else {
+                valueInDollars = 0
+            }
+            dateCreated = Date()
+            print(name,color,valueInDollars,dateCreated)
+            //Create a new item and add it to the store
+            itemStore.createItem(name,color,valueInDollars)
+            
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     
